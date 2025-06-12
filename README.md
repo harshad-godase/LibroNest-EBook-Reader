@@ -99,7 +99,7 @@ cd LibroNest
 {
   "rules": {
     ".read": "true",
-    ".write": "false"
+    ".write": "true"
   }
 }
 ```
@@ -122,9 +122,9 @@ cd LibroNest
 
 ## 🧑‍💻 Author
 
-**Your Name**  
-📧 your.email@example.com  
-🌐 [Portfolio](https://yourportfolio.com) | [LinkedIn](https://linkedin.com/in/yourprofile)
+**Harshad Godase**  
+📧 harshadgodase7k@gmail.com  
+🌐[LinkedIn](https://linkedin.com/in/yourprofile](https://www.linkedin.com/in/harshad-godase/)
 
 ---
 
