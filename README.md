@@ -17,10 +17,15 @@
 ---
 ## 📸 Screenshots
 
-  ![WhatsApp Image 2025-06-12 at 11 49 34_7f5f348d](https://github.com/user-attachments/assets/731f206e-a20a-4fc7-bba6-7e5e7536da92)
-  ![WhatsApp Image 2025-06-12 at 11 49 40_216d68ad](https://github.com/user-attachments/assets/3e48b63c-6dfd-485d-8ddb-d756ff98eab3)
-  ![WhatsApp Image 2025-06-12 at 11 49 40_e02f8cfa](https://github.com/user-attachments/assets/8768ae90-e7e7-4037-8b36-cbd5f3f97ce2)
-  ![WhatsApp Image 2025-06-12 at 11 49 40_3eadae2f](https://github.com/user-attachments/assets/a2022e34-4095-4ee8-8b80-7fb16faee157)
+<div align="center">
+
+<img src="https://github.com/user-attachments/assets/731f206e-a20a-4fc7-bba6-7e5e7536da92" width="300" />
+<img src="https://github.com/user-attachments/assets/3e48b63c-6dfd-485d-8ddb-d756ff98eab3" width="300" />
+<br/>
+<img src="https://github.com/user-attachments/assets/8768ae90-e7e7-4037-8b36-cbd5f3f97ce2" width="300" />
+<img src="https://github.com/user-attachments/assets/a2022e34-4095-4ee8-8b80-7fb16faee157" width="300" />
+
+</div>
 
 ## 🧱 Tech Stack
 
