@@ -1,85 +1,135 @@
 
-# 📘 IoT-Based Gait Disorder Detection and Health Monitoring System
+# 📚 LibroNest – EBook Reader App
 
-## 🎯 Project Title  
-**IoT-Based Gait Disorder Detection and Health Monitoring System**
+**LibroNest** is a cleanly-structured Jetpack Compose-based Android application that allows users to explore and read categorized eBooks from Firebase Realtime Database. PDFs are rendered directly within the app using Bouquet PDF reader.
 
-## 📄 Description  
-This project presents a real-time, wearable IoT system to monitor vital health parameters and detect gait disorders in patients recovering from surgeries, neurological conditions, or injuries. Using an ESP32 microcontroller, it integrates sensors like MAX30100 (pulse & SpO₂), LM35 (temperature), and ADXL345 (accelerometer) to collect live physiological and motion data. The data is displayed on an OLED and sent to ThingSpeak cloud, then analyzed through a Flask web application to classify gait and detect abnormalities. The system also includes a buzzer to alert in case of abnormal readings, helping ensure patient safety during recovery.
+---
 
-## ⚙️ Features
-- Real-time monitoring of BPM, SpO₂, body temperature, and leg motion
-- Wi-Fi data transmission to ThingSpeak cloud using ESP32
-- Flask-based web dashboard for live monitoring and classification
-- Dataset-based gait disorder detection using accelerometer values
-- OLED display for local feedback
-- Buzzer alert system for abnormalities
+## ✨ Features
 
-## 🔌 Hardware Components
-- **ESP32 Microcontroller** (central controller with Wi-Fi)
-- **MAX30100** Pulse & SpO₂ Sensor
-- **LM35** Temperature Sensor
-- **ADXL345** Accelerometer (mounted on leg)
-- **OLED Display** (0.96” I2C)
-- **Buzzer** (for real-time alerts)
-- **LM7805** Voltage Regulator
-- **Li-ion Battery** (3.7V, 2000mAh)
+- 🔖 Browse categorized books (8 categories, 32 books)
+- 📄 Open and read PDF books within the app
+- 🔥 Firebase Realtime Database integration
+- 🎨 Jetpack Compose + Material 3 UI
+- ⚙️ MVVM architecture with clean modular structure
+- 🌗 Light & dark mode support
 
-## 🧠 Software Stack
-| Component      | Technology Used          |
-|----------------|--------------------------|
-| Embedded Code  | Arduino IDE (C++)        |
-| Web Dashboard  | Python Flask             |
-| Data Storage   | ThingSpeak (Cloud API)   |
-| Visualization  | Matplotlib + HTML (Flask Templates) |
-| Dataset        | CSV (normal_data1.csv) for gait classification |
+---
+## 📸 Screenshots
 
-## 📊 Gait Classification Logic
-- ADXL345 captures X, Y, Z acceleration values.
-- Flask compares them with pre-labeled gait dataset using Euclidean distance.
-- Classifies gait as **Normal**, **Abnormal**, or specific disorder (e.g., Parkinsonian, Spastic).
-- Suggests remedy based on dataset's `Recovery_Suggestion`.
 
-## 🖥️ Web Interface Features
-- Live display of BPM, SpO₂, Temperature, X/Y/Z
-- Color-coded status: **Normal**, **Abnormal**, **Disorder**
-- Gait comparison graphs with mean ± std shading
-- Disorder-specific remedies page
+  ![WhatsApp Image 2025-06-12 at 11 49 34_7f5f348d](https://github.com/user-attachments/assets/731f206e-a20a-4fc7-bba6-7e5e7536da92)
+  <img src="![WhatsApp Image 2025-06-12 at 11 49 40_216d68ad](https://github.com/user-attachments/assets/3e48b63c-6dfd-485d-8ddb-d756ff98eab3)
+" width="200"/>
+  <img src="s![WhatsApp Image 2025-06-12 at 11 49 40_e02f8cfa](https://github.com/user-attachments/assets/8768ae90-e7e7-4037-8b36-cbd5f3f97ce2)
+" width="200"/>
+  <img src="![WhatsApp Image 2025-06-12 at 11 49 40_3eadae2f](https://github.com/user-attachments/assets/a2022e34-4095-4ee8-8b80-7fb16faee157)
+" width="200"/>
 
-## 📦 Folder Structure
+## 🧱 Tech Stack
+
+- **Language**: Kotlin
+- **UI**: Jetpack Compose + Material 3
+- **Architecture**: MVVM + Repository Pattern
+- **Dependency Injection**: Hilt
+- **Backend**: Firebase Realtime Database
+- **PDF Viewer**: Bouquet PDF Viewer
+
+---
+
+## 📂 Folder Structure
+
 ```
-/project-root
+com.example.ebooklibrary/
+├── common/
+│   ├── BookCategoryModel.kt
+│   ├── BookModel.kt
+│   └── ResultState.kt
 │
-├── main.py                   # Flask application
-├── templates/                # HTML files (index, graphs, disorder_type)
-├── static/                   # Graph images (x_graph.png, y_graph.png, etc.)
-├── normal_data1.csv          # Gait dataset
-├── Arduino Code/             # ESP32 firmware
-└── README.md                 # This file
+├── data/
+│   ├── di/
+│   │   └── HiltModule.kt
+│   └── repoImpl/
+│       └── AllBookRepoImpl.kt
+│
+├── domain/
+│   └── repo/ (Interface definitions if any)
+│
+├── presentation/
+│   ├── Effects/
+│   │   └── ShimmerEffects.kt
+│   ├── Navigation/
+│   │   ├── NavGraph.kt
+│   │   └── Routes.kt
+│   ├── Screens/
+│   │   ├── AllBooksScreen.kt
+│   │   ├── BooksByCategoryScreen.kt
+│   │   ├── CategoryScreen.kt
+│   │   ├── HomeScreen.kt
+│   │   ├── PdfViewScreen.kt
+│   │   ├── TabScreen.kt
+│   │   └── ViewModel.kt
+│   └── UIcomponent/
+│       ├── Bookcart.kt
+│       └── BookCategoryCard.kt
+│
+├── ui.theme/ (Jetpack Compose theme files)
+│
+├── MainActivity.kt
+└── BaseApplication.kt
 ```
 
-## 🧪 Testing & Results
-- Sensors tested with real-time patient movement and vital sign variations
-- System reliably detected disorders like Ataxic Gait and triggered alerts
-- Usability tested with patients, physiotherapists, and caregivers
-- OLED readability and Flask interface validated for home and clinical use
+---
 
-## 🔐 Safety Features
-- Buzzer alerts for:
-  - BPM out of 50–120
-  - SpO₂ < 95%
-  - Temp < 97°F or > 99°F
-  - Abnormal gait pattern
-- Wireless monitoring avoids unnecessary hospital visits
+## 🛠️ How to Setup
 
-## 📱 Future Scope
-- AI/ML-based gait classification model
-- Mobile app for remote monitoring and alerts
-- EMG and additional sensor integration
-- Long-term patient data trends and predictive analytics
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/LibroNest.git
+cd LibroNest
+```
 
-## 👨‍🔧 Project Team
-- **Group No:** 3  
-- **Guide:** Prof. Karle Sir  
-- **College:** Sinhagad Institute of Technology  
-- **Team Members:** [Add your 4 names with roles here]
+### 2. Firebase Setup
+- Download `google-services.json` from Firebase Console and place it under `app/`
+- Enable Realtime Database and paste the provided JSON data
+
+### 3. Database Rules (Demo)
+```json
+{
+  "rules": {
+    ".read": "true",
+    ".write": "false"
+  }
+}
+```
+
+### 4. Run the App
+- Open in Android Studio Arctic Fox or higher
+- Connect Firebase and sync Gradle
+- Run on emulator/device (minSdk 28+)
+
+---
+
+## 📌 Project Highlights
+
+- Structured clean architecture following MVVM
+- State handled with Compose and Hilt-injected ViewModel
+- PDFs open from real working remote links
+- No login needed — users instantly access all books
+
+---
+
+## 🧑‍💻 Author
+
+**Your Name**  
+📧 your.email@example.com  
+🌐 [Portfolio](https://yourportfolio.com) | [LinkedIn](https://linkedin.com/in/yourprofile)
+
+---
+
+## 📄 License
+
+This project is for educational and résumé purposes. The books are open-license PDFs hosted externally.
+
+---
+
